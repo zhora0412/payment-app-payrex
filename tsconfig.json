@@ -1,0 +1,29 @@
+{
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/@shopify/app/assets/dev-console/extensions/dev-console/assets/index-f9d53d36.js"
+  ],
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2019"],
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "target": "ES2019",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./app/*"]
+    },
+    "types": [
+      "node", "@shopify/app-bridge-types"
+    ]
+  }
+}

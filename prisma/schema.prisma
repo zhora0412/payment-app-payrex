@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.sqlite"
+}
+
+model Shop {
+  id                   Int     @id @default(autoincrement())
+  name                 String  @unique
+  instance_key         String?
+  authorization_status Boolean @default(false)
+  language             String  @default("EN")
+  api_key              String?
+  platform_key         String? @default("payrexx")
+  access_token         String?
+  design_key           String?
+  design_name          String?
+}
+
+model Payment {
+  id            Int      @id @default(autoincrement())
+  payrexx_uuid  String?
+  reference_id  Int?     @unique
+  shopify_key   String?  @unique
+  payrexx_id    Int?     @unique
+  amount        Int?
+  psp           String?
+  currency      String?
+  status        String?
+  refund_status Boolean?
+  refund_gid_id String?
+  shop          String?
+}
+
+model Session {
+  id          String    @id
+  shop        String
+  state       String
+  isOnline    Boolean   @default(false)
+  scope       String?
+  expires     DateTime?
+  accessToken String
+  userId      BigInt?
+}
